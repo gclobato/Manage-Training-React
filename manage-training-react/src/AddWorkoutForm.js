@@ -2,13 +2,19 @@ import React, { useState } from 'react';
 
 const AddWorkoutForm = () => {
   const [workoutName, setWorkoutName] = useState('');
-  const [workoutDuration, setWorkoutDuration] = useState('');
+  const [workoutSeries, setWorkoutSeries] = useState('');
+  const [workoutMuscle, setWorkoutMuscle] = useState('');
+  const [workoutDay, setWorkoutDay] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Novo treino adicionado:', workoutName, workoutDuration);
+    // Aqui você poderia enviar os dados para o backend para adicionar um novo treino
+    console.log('Novo treino adicionado:', workoutName, workoutSeries, workoutMuscle, workoutDay);
+    // Resetar os campos do formulário após a submissão
     setWorkoutName('');
-    setWorkoutDuration('');
+    setWorkoutSeries('');
+    setWorkoutMuscle('');
+    setWorkoutDay('');
   };
 
   return (
@@ -23,9 +29,21 @@ const AddWorkoutForm = () => {
         />
         <input
           type="text"
-          placeholder="Duração do Treino"
-          value={workoutDuration}
-          onChange={(e) => setWorkoutDuration(e.target.value)}
+          placeholder="Séries do Treino"
+          value={workoutSeries}
+          onChange={(e) => setWorkoutSeries(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Músculo Alvo"
+          value={workoutMuscle}
+          onChange={(e) => setWorkoutMuscle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Dia da Semana"
+          value={workoutDay}
+          onChange={(e) => setWorkoutDay(e.target.value)}
         />
         <button type="submit">Adicionar</button>
       </form>
